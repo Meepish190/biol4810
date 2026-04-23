@@ -1,0 +1,64 @@
+Transcriptome Notes:
+
+Step 0: Import galaxy history thats given
+
+
+Step 1: Fastqc (Falco)
+
+Version: (Galaxy Version 1.2.4+galaxy0)
+
+Purpose: Quality check of reeds
+
+Dataset collection
+
+Parameters: default
+
+
+
+Step 2: Fastp
+
+Version: (Galaxy Version 1.3.1+galaxy0)
+
+Purpose: processing of fastqc files, getting rid of things that dont meet quality control
+
+Parameters: Paired collection
+
+Details: Filter out parts that do not fit the minimum quality requirements.
+
+
+
+Step 3: Hisat2
+
+Version: (Galaxy Version 2.2.2+galaxy0)
+
+parameters: Genome from history for reference genome // Paired end dataset collection for paired library
+
+Purpose: aligner, aligned genes to genome
+
+
+Step 4: Stringtie
+
+Version: (Galaxy Version 2.2.3+galaxy0)
+
+Purpose: This assembles the transcript
+
+Parameters: default
+
+Step 5: StringTie Merge
+
+Version: Galaxy Version 2.2.3+galaxy0)
+
+Parameters: default (dataset collection)
+
+
+Step 5: gff compare
+
+Version: (Galaxy Version 0.12.10+galaxy0)
+
+Parameters: Add both files to inputs, thats it all else default
+
+Purpose: Take all assembled transcripts, then compare to genome annotation
+
+
+
+
