@@ -1,0 +1,122 @@
+Section Report 03:
+
+Step 0:
+Grab group 5 given files and upload to Galaxy
+
+
+
+Step 1: Auto Build list
+Select all but metadata file and auto build into a list, named it bird list
+
+
+
+
+Step 2: Dada2 plotQualityProfile
+
+Version: (Galaxy Version 1.38.0+galaxy0)
+
+Parameters: Default
+
+Details: Builds a profile for the given reads (forward/Reverse), allows you to see the overall quality and bad reads and whatnot.
+
+
+
+
+Step 3: Filter and Trim dada2
+
+Parameters: Reverse cut off at 205, Forward cut off at 215
+
+Version: (Galaxy Version 1.38.0+galaxy0)
+
+Details: Filter off the reads that have lower quality on the reverse reads, and make the forward reads match somewhat.
+
+
+
+
+
+Step 4: Separate Collections (Forward and Reverse) Unzip Collection
+
+Parameters: Default
+
+Version: (Galaxy Version 1.0.0)
+
+Details: This is just to separate the collections into forward and reverse because future steps require it.
+
+
+
+
+Step 5: Learn Errors (Dada2)
+
+Parameters: Default (just choose either forward or reverse reads)
+
+Version: (Galaxy Version 1.38.0+galaxy0)
+
+Details: Highlights errors and lowquality reads
+
+
+Step 6: Dada Denoising
+
+Parameters: Default (choose either forward or reverse)
+
+Version: (Galaxy Version 1.38.0+galaxy0)
+
+Details: Removes sequence errors based on parameters you labeled.
+
+
+Step 7: MergePairs
+
+Parameters: default (forward and reverse reads)
+
+Version: (Galaxy Version 1.38.0+galaxy0)
+
+Details: This helps create a merged version of the forward and reverse reads. MAKE SURE THEY WEIGH SOMETHING, NOT EMPTY FILES.
+
+
+
+Step 8: DADA makesequencetable
+
+Parameters: default 
+
+Version: (Galaxy Version 1.38.0+galaxy0)
+
+Details: Uses the merged pairs to make a sequence table that showcases the sequence lengths.
+
+
+
+Step 9: removeBimeraDenuvo
+
+Parameters: Default
+
+Version: (Galaxy Version 1.38.0+galaxy0)
+
+Details:(Galaxy Version 1.38.0+galaxy0)
+
+
+Step 10: AssignTaxonomy/add species
+
+Parameters: Silva 138 everywhere you can. Besides that default
+
+Version:(Galaxy Version 1.38.0+galaxy0)
+
+Details: Assigns the taxonomy/chooses the source, things like phylum/class. Links dna sequence to groups of genus and species.
+
+
+Step 11: Create Phyloseq Object
+
+Parameters: Just make sure the add the tabular metadata file, besides that default
+
+Version: (Galaxy Version 1.54.0+galaxy0)
+
+Details: Created phyloseq object in order to visualize the types of diversity in the species/phylum/genus.
+
+
+Step 12: Create Bar chart
+
+Parameters: Choose phylum and a source (like flock)
+
+Version: (Galaxy Version 1.54.0+galaxy0)
+
+Details: Creates multiple bar charts showcasing the metadata based on the parameters you applied.
+
+
+
